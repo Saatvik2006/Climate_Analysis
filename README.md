@@ -1,50 +1,120 @@
-# Climate Analysis Project
+#  Climate Analysis Project (1990–2022)
 
-This project analyzes long-term climate trends across multiple Indian cities (1990–2022).
+This project presents a data-driven analysis of long-term climate trends across major Indian cities using statistical and visualization techniques.
 
-Cities included:
-- Bangalore
-- Chennai
-- Delhi
-- Lucknow
-- Mumbai
-- Rajasthan (Jodhpur)
-- Bhubaneswar
-- Rourkela
+---
 
-## Project Structure
+##  Overview
 
-data/
-Raw weather datasets.
+The objective of this project is to demonstrate how data analysis techniques can be used to:
 
-scripts/
-Python scripts used for analysis.
+- Identify long-term temperature trends  
+- Analyze seasonal climate variations  
+- Detect extreme climate events  
+- Compare climatic behavior across cities  
+- Ensure data quality and integrity  
 
-01_data_loading.py
-Loads and merges all city datasets.
+---
 
-02_data_cleaning.py
-Performs:
-- structural validation
-- coverage analysis
-- rainfall filtering
-- anomaly detection
+##  Cities Analyzed
 
-03_descriptive_analysis.py
-Computes annual temperature statistics and trends.
+- Bangalore  
+- Chennai  
+- Delhi  
+- Lucknow  
+- Mumbai  
+- Bhubaneswar  
+- Rourkela  
 
-## Data Cleaning Steps
+---
 
-1. Removed duplicate timestamps
-2. Verified calendar completeness
-3. Checked physical constraints:
-   - tmax >= tmin
-   - rainfall >= 0
-4. Calculated coverage per city/year
-5. Flagged statistical anomalies using Z-score
-6. Fixed one corrupted temperature value
+##  Data Integrity Note
 
-## Current Status
+The dataset labeled **Rajasthan (Jodhpur)** was found to be an exact duplicate of the Bangalore dataset (verified via hash comparison).  
+It was removed to avoid biased analysis.
 
-Cleaning complete.
-Next stage: temperature trend analysis.
+---
+
+##  Techniques Used
+
+### Trend Analysis
+- Mann-Kendall Trend Test  
+- Sen’s Slope Estimation  
+- Ordinary Least Squares (OLS) Regression  
+
+### Climate Metrics
+- Annual Mean Temperature  
+- Temperature Anomalies  
+- Seasonal Trends  
+- Tmin vs Tmax Asymmetry  
+
+### Extreme Event Analysis
+- Heatwaves (IMD definition: ≥40°C for ≥3 days)  
+- Warm Nights (TN90p index)  
+- Extreme Rainfall Events  
+- Consecutive Wet Days (CWD)  
+
+---
+
+##  Project Structure
+Climate_Analysis/
+│
+├── data/ # Raw datasets
+├── scripts/ # Analysis scripts
+│ ├── 01_data_loading.py
+│ ├── 02_data_cleaning.py
+│ ├── 03_descriptive_analysis.py
+│ ├── 04_trend_analysis.py
+│ ├── 05_extreme_events.py
+│ ├── 06_visualizations.py
+│
+├── results/ # Generated figures and outputs
+│
+├── README.md
+├── requirements.txt
+
+
+---
+
+##  Key Findings
+
+- All cities exhibit a warming trend  
+- Mumbai shows the highest warming rate (~+0.47°C/decade)  
+- Nighttime temperatures are increasing faster than daytime temperatures  
+- Heatwave frequency has increased in northern cities (Delhi, Lucknow)  
+- Rainfall patterns show high variability rather than consistent trends  
+- Temperature anomalies show a clear shift toward warmer conditions in recent years  
+
+---
+
+##  Visualizations
+
+All figures are available in the `results/` folder, including:
+
+- Annual temperature trends  
+- Seasonal warming heatmaps  
+- Temperature anomaly heatmaps  
+- Rainfall time series  
+- Heatwave event timelines  
+- Warm night trends  
+
+---
+
+##  How to Run
+
+1. Install dependencies:
+
+pip install -r requirements.txt
+
+2. Run scripts in order:
+
+python scripts/01_data_loading.py
+python scripts/02_data_cleaning.py
+python scripts/03_descriptive_analysis.py
+python scripts/04_trend_analysis.py
+python scripts/05_extreme_events.py
+python scripts/06_visualizations.py
+
+## Significance
+
+This project demonstrates how data analysis can transform raw climate data into meaningful insights, enabling better understanding of climate change patterns and associated risks.
